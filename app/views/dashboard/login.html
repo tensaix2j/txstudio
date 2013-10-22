@@ -1,0 +1,25 @@
+
+	<%= form_tag :action=>:login  %>
+		<ol>
+			<% if @errormsg  %>
+                                <div id="notice" align='center' style='color:red'><%= @errormsg %></div>
+                        <% end %>
+			
+			<li>	
+				Admin User Name: <br/>
+				<input type="text" name="txtUsername" style="border-width:1px;width:400px;border-color:#000000;"  />
+				<br/><br/>
+			</li>
+			<li>
+				Password: <br/>
+				<input type="password" name="txtPassword" style="border-width:1px;width:400px;border-color:#000000;"  />
+				<br/><br/>
+			</li>
+			<li>
+
+				<input type="submit" value="Admin Login" style="width:400px;"  />
+				<br/><br/>
+			</li>
+		</ol>
+	</form>
+	

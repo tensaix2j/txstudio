@@ -1,0 +1,63 @@
+
+
+
+#stage {
+
+}
+
+.appstage {
+	margin:10px;
+}
+
+.appicon {
+	
+	margin:20px;
+	width:200px;
+	height:200px;
+	float:left;
+	border-radius:15px;
+	-moz-border-radius: 15px;
+	-webkit-border-radius: 15px;
+
+	box-shadow:4px 4px 20px 1px  #000000;
+	-moz-box-shadow:  4px 4px 20px 1px  #000000;
+	-webkit-box-shadow: 4px 4px 20px 1px  #000000;
+}
+.apptitle {
+	font-size: 40px;
+}
+
+.appdate {
+	font-size: 12px;
+}
+
+.apptitleframe {
+	
+	text-align: center;
+	text-shadow: 2px 2px 2px rgba(0, 0, 0, .8);
+	color: rgb(160, 160, 160);
+	margin:20px;
+	vertical-align: middle;
+	height:200px;
+	
+	box-shadow:4px 4px 20px 1px  #000000;
+	-moz-box-shadow:  4px 4px 20px 1px  #000000;
+	-webkit-box-shadow: 4px 4px 20px 1px  #000000;
+	
+	border-radius:15px;
+	-moz-border-radius: 15px;
+	-webkit-border-radius: 15px;
+	
+	background-color:#3d2b19;
+}
+
+.appheaddesc {
+	margin:20px;
+}
+
+.appdesc {
+	clear:both;
+	margin:120px;
+	
+	
+}

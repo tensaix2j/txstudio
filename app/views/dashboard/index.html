@@ -1,0 +1,21 @@
+
+
+
+<% @apps.each { |app| %>
+	<div class="griditem" 
+
+
+
+		style="background-image:url('<%= app.icon  %>') ;" 
+		onclick="goto('<%= CGI::escape(app.name)  %>')" 
+		
+	>
+		<div class="shine"></div>
+
+		<div class="griditem_label">
+			<%= app.name  %>
+		</div>
+	</div>
+<% } %>
+
+

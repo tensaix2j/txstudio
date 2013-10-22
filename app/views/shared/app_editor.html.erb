@@ -1,0 +1,34 @@
+			<ol>
+				<li>	
+					App Name: <br/>
+					<input type="text" name="txtAppName" style="border-width:1px;width:660px;border-color:#000000;"  />
+					<br/><br/>
+				</li>
+			
+				<li>	
+					
+					Icon: <br/>
+					<input type="text" name="txtAppIcon" style="border-width:1px;width:660px;border-color:#000000;" value="<%= @app.icon %>" />
+					<br/><br/>
+				</li>
+				
+				
+				<li>	
+					Large Icon: <br/>
+					<input type="text" name="txtAppLargeIcon" style="border-width:1px;width:660px;border-color:#000000;" value="<%= @app.large_icon %>" />
+					<br/><br/>
+				</li>
+				
+				
+				
+				<li>
+					HTML: <br/>
+					<textarea name="txtAppDesc" rows="40" cols="80" style="vertical-align:text-top;"> <%= @app.description %></textarea>
+					<br/><br/>
+				</li>
+				<li>
+
+					<input type="submit" value="Save" style="width:400px;"  />
+					<br/><br/>
+				</li>
+			</ol>

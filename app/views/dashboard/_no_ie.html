@@ -1,0 +1,48 @@
+	
+	<style>
+		body {
+			background-color: #54493e;
+			background-image: url("/imgs/bg2.png");
+
+		}
+
+		#content {
+			background-color:#ffffff;
+			margin:20px;
+			padding:40px;
+
+			border-radius:5px 5px 5px 5px;
+			-moz-border-radius: 5px  5px 5px 5px;
+			-webkit-border-radius: 5px  5px 5px 5px;
+		}
+		
+
+	</style>
+
+	<div>
+		<div class = "headerbar_top"></div>	
+		<div id="content">
+
+			<h2>Cannot be rendered properly. </h2>
+
+			Your browser: </br>
+			
+			<h3><%= @user_agent.browser %> <%= @user_agent.version %> (<%= @user_agent.platform %>)</h3>
+			is outdated.
+
+			Please use one of the following qualified browsers : 
+			<br/>
+			<br/>
+			<ul>
+				<% @browser_req.keys.each { | brw | %>
+					<li><%= brw %> <%= @browser_req[brw] %> and above</li>
+				<% } %>
+			</ul>
+			
+				
+
+			
+
+		</div>
+	</div>
+	

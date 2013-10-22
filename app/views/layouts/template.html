@@ -1,0 +1,72 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		
+		<% browser_ok = 0 %>	
+		<% if @browser_req[ @user_agent.browser ] != nil %>
+			
+			<% if @user_agent.version >= @browser_req[ @user_agent.browser ] %>
+				<% browser_ok = 1 %>	
+			<% end %>
+		
+		<% else %>
+			<% browser_ok = 1 %>	
+		<% end %>
+
+
+		<meta charset="utf-8" />
+		<title>Tensai Studio</title> 
+		<meta name="description" content="Tensai Studio" />
+ 		<link rel="icon" type="image/png" href="/css/imgs/bluecap_256.png"></link> 
+
+ 		<% if browser_ok == 1 %>
+			<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.0/jquery.min.js"></script>
+			<script src="/js/main.js?"></script>
+		<% end %>
+
+		<link rel="stylesheet" type="text/css" href="/css/main.css?" />
+		<link rel="stylesheet" type="text/css" href="/css/app.css?" />
+
+
+	
+		<script type="text/javascript">
+
+		  var _gaq = _gaq || [];
+		  _gaq.push(['_setAccount', 'UA-27131375-3']);
+		  _gaq.push(['_trackPageview']);
+		
+		  (function() {
+			var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+			ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+		  })();
+		
+		</script>
+
+	</head>
+	<body>
+
+		
+
+
+		<% if browser_ok == 1 %>
+			<div id="stage">
+				<%= yield :layout %>
+			</div>
+		<% else %>
+			<%= render "/dashboard/no_ie" %>
+		<% end %>
+
+		
+		<NOSCRIPT>
+			Browser not supported. Sorry.		 	
+		</NOSCRIPT>	
+
+		<% if browser_ok == 1 %>
+			<div id="footer"><a href="/" id="footer">Tensai Studio 2011.11</a></div>
+		<% end %>
+	</body>
+
+		
+</html>
+
