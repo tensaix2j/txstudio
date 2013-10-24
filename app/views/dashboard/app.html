@@ -13,11 +13,11 @@
 		<div class="apptitleframe">
 			<div class="apptitle"><%= @app.name %></div>
 			<div class="appdate">Posted on <%= @app.date %></div>
-			<div class="appheaddesc"> <%= @app.head_description.html_safe %></div>
+			<div class="appheaddesc"> <%= @app.head_description.to_s.html_safe() %></div>
 		</div>
 		
-		<div class="appdesc" > <%= @app.description.html_safe %></div>
-		
+		<div class="appdesc" > <%= @app.description.to_s.html_safe() %></div>
+
 		<div id="disqus_thread"></div>
 		<script type="text/javascript">
 		    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */

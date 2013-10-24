@@ -8,8 +8,12 @@ class ApplicationController < ActionController::Base
   # Scrub sensitive parameters from your log
   # filter_parameter_logging :password
 
+  	rescue_from ActionController::UnknownAction, :with => :action_not_found
 
 
+  	def action_not_found
+  		render :text => "action_not_found"
+	end
 
 	#-------------------
 	def getRubyTimeObj( timestamp )

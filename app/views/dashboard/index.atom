@@ -1,0 +1,32 @@
+
+
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xml:lang="en-US" xmlns="http://www.w3.org/2005/Atom">
+	  
+	<id>tag:<%= @host %>:/dashboard/index/feed</id>
+	<link type="text/html" rel="alternate" href="http://<%= @host_with_port %>"/>
+	<link type="application/atom+xml" rel="self" href="http://<%= @host_with_port %>/dashboard/index/feed.atom"/>
+	<title>Tensaistudio</title>
+	<updated><%= @apps[0].date %></updated>
+
+	<% @apps.each { |app| %>
+  	
+  		<entry>
+		<id>tag:<%= @host %>,<%= app.id %> </id>
+		<published><%= app.date %></published>
+		<updated><%= app.date %></updated>
+		<title type="text"><%= app.name %></title>
+		<summary type="html"><%= app.description[0...200] %> </summary>
+		<link rel="alternate" type="text/html" 
+			href="<%=  app.url %>" 
+			title="<%= app.name %>" />
+		<author>
+			<name>tensaix2j</name>
+		</author>
+		</entry>
+
+	<% } %>
+
+
+</feed>
+
