@@ -7,14 +7,14 @@
 	<link type="text/html" rel="alternate" href="http://<%= @host_with_port %>"/>
 	<link type="application/atom+xml" rel="self" href="http://<%= @host_with_port %>/dashboard/index/feed.atom"/>
 	<title>Tensaistudio</title>
-	<updated><%= @apps[0].date %></updated>
+	<updated><%= @apps.reverse[0]["pubdate"] %></updated>
 
-	<% @apps.each { |app| %>
+	<% @apps.sort_by { |k| k["date"]   }.reverse.each { |app| %>
   	
   		<entry>
 		<id>tag:<%= @host %>,<%= app.id %> </id>
-		<published><%= app.date %></published>
-		<updated><%= app.date %></updated>
+		<published><%= app["pubdate"] %></published>
+		<updated><%= app["pubdate"] %></updated>
 		<title type="text"><%= app.name %></title>
 		<summary type="html"><%= app.description[0...200] %> </summary>
 		<link rel="alternate" type="text/html" 

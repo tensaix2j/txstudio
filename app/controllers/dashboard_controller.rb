@@ -18,9 +18,12 @@ class DashboardController < ApplicationController
 			
 			format.html { 
 			}
+			format.rss { 
+				
+			}
 		    format.atom {
 		    	@apps.each { |app|
-		    		app.date = getRubyTimeObj( app.date )
+		    		app["pubdate"] = getRubyTimeObj( app.date )
 		    		app["url"] = "http://#{ @host_with_port }/dashboard/app/#{  URI::encode( app.name ) }"
 		    	}	
 		    }
