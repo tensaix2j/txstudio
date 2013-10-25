@@ -1,18 +1,17 @@
-
-
 <?xml version="1.0" encoding="UTF-8"?>
 <feed xml:lang="en-US" xmlns="http://www.w3.org/2005/Atom">
 	  
-	<id>tag:<%= @host %>:/dashboard/index/feed</id>
+	<id>tag:<%= @host %>,2013:/dashboard/index/feed</id>
 	<link type="text/html" rel="alternate" href="http://<%= @host_with_port %>"/>
-	<link type="application/atom+xml" rel="self" href="http://<%= @host_with_port %>/dashboard/index/feed.atom"/>
+	<link type="application/atom+xml" rel="self" href="http://feeds.feedburner.com/tensaistudio"/>
+
 	<title>Tensaistudio</title>
 	<updated><%= @apps.reverse[0]["pubdate"] %></updated>
 
 	<% @apps.sort_by { |k| k["date"]   }.reverse.each { |app| %>
   	
   		<entry>
-		<id>tag:<%= @host %>,<%= app.id %> </id>
+		<id>tag:<%= @host %>,2013:<%= app.id %></id>
 		<published><%= app["pubdate"] %></published>
 		<updated><%= app["pubdate"] %></updated>
 		<title type="text"><%= app.name %></title>
