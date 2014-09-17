@@ -16,7 +16,7 @@ class ApplicationController < ActionController::Base
 	end
 
 	#-------------------
-	def getRubyTimeObj( timestamp )
+	def timestring_to_timeobj( timestamp )
 		
 		if timestamp && timestamp != ""
 			year = timestamp[0..3].to_i
@@ -26,7 +26,7 @@ class ApplicationController < ActionController::Base
 			minute = timestamp[11..12].to_i
 			second = timestamp[13..14].to_i
 			
-			return DateTime.new(year,month,day,hour,minute,second)
+			return Time.parse("%04d/%02d/%02d %02d:%02d:%02d" % [year,month,day,hour,minute,second] )
 		else 
 			return nil
 		end
