@@ -1,12 +1,14 @@
-
+	
+	<link rel="stylesheet" type="text/css" href="/css/tablesorter/tablesorter.css">
 
 	<table class="tablesorter">
 		<thead>
 			<tr>
-				<th>App ID</th>
+				<th width='10%'>App ID</th>
+				<th width='1%'>Icon</th>
 				<th>App Name</th>
 				<th>Date</th>
-				
+				<th></th>
 			</tr>
 
 		</thead>
@@ -15,9 +17,10 @@
 			<% @apps.each { |app| %>
 				<tr>
 					<td><%= app.id %></td>
+					<td><img src='<%= app.icon %>'/></td>
 					<td><%= app.name %></td>
 					<td><%= app.date %></td>
-				
+					<td><a href='/admin/edit/<%= app.name %>'>Edit</a></td>
 				</tr>
 			<% } %>
 		</tbody>

@@ -99,7 +99,30 @@ class AdminController < ApplicationController
 		if session[:user_id] 
 			redirect_to :action=>:index 
 		else	
-			
+			username 	= CGI::unescape( params[:txtUsername] )
+			password 	= CGI::unescape( params[:txtPassword] )
+			auth_token 	= params[:authenticity_token]
+ 			
+ 			if session["_csrf_token"] == auth_token
+ 				
+ 				users = User.find(:all, :conditions => [ "username = ?" , "admin"] )
+ 				if users.length > 0
+
+ 					admin = users[0]
+ 					if Digest::SHA256.hexdigest( password) == admin.hashed_password
+						session[:user_id] = "admin"
+						redirect_to :action=>:index
+					else
+						@errormsg = "Wrong password."
+					end	
+				else 
+					@errormsg = "No admin yet."	
+				end
+
+ 			else
+ 				@errormsg = "Forgery detected."
+ 			end
+ 				
 			
 		end
 	end

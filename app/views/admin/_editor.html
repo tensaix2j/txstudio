@@ -1,0 +1,35 @@
+			
+			<ol>
+				<li>	
+					App Name: <br/>
+					<input type="text" id="txtAppName" name="txtAppName"   />
+					<br/><br/>
+				</li>
+			
+				<li>	
+					
+					Icon: <br/>
+					<input type="text" id="txtAppIcon" name="txtAppIcon" value="<%= @app.icon %>" />
+					<br/><br/>
+				</li>
+				
+				
+				<li>	
+					Large Icon: <br/>
+					<input type="text" id="txtAppLargeIcon" name="txtAppLargeIcon"  value="<%= @app.large_icon %>" />
+					<br/><br/>
+				</li>
+				
+				
+				
+				<li>
+					HTML: <br/>
+					<textarea name="txtAppDesc" id="txtAppDesc" rows="40" cols="80" > <%= @app.description %></textarea>
+					<br/><br/>
+				</li>
+				<li>
+
+					<input id="butsubmit" type="submit" value="Save" />
+					<br/><br/>
+				</li>
+			</ol>
