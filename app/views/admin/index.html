@@ -1,5 +1,25 @@
 
 
-	<table>
-		
+	<table class="tablesorter">
+		<thead>
+			<tr>
+				<th>App ID</th>
+				<th>App Name</th>
+				<th>Date</th>
+				
+			</tr>
+
+		</thead>
+
+		<tbody>
+			<% @apps.each { |app| %>
+				<tr>
+					<td><%= app.id %></td>
+					<td><%= app.name %></td>
+					<td><%= app.date %></td>
+				
+				</tr>
+			<% } %>
+		</tbody>
+
 	</table>

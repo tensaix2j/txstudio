@@ -6,6 +6,7 @@ class AdminController < ApplicationController
 	#--------
 	def index
 		detect_user_agent()
+		@apps = App.find(:all)
 	end
 
 
@@ -98,21 +99,7 @@ class AdminController < ApplicationController
 		if session[:user_id] 
 			redirect_to :action=>:index 
 		else	
-			username 	= params[:txtUsername] ? CGI::unescape( params[:txtUsername] ) :""
-			password 	= params[:txtPassword] ? CGI::unescape( params[:txtPassword] ) :""
-			auth_token 	= params[:authenticity_token]
 			
-			if auth_token
-				printf "Auth Token: %s\n\n",auth_token
-				if username == "admin" && password == "jj1234" 
-					session[:user_id] = "admin"
-					redirect_to :action=>:index
-				else
-					@errormsg = "Invalid Username/Password"
-				end
-			else
-				@errormsg = ""
-			end
 			
 		end
 	end
