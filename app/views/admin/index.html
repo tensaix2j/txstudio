@@ -18,7 +18,7 @@
 				<tr>
 					<td><%= app.id %></td>
 					<td><img src='<%= app.icon %>'/></td>
-					<td><%= app.name %></td>
+					<td><a href='/dashboard/app/<%= app.name %>'><%= app.name %></a></td>
 					<td><%= app.date %></td>
 					<td><a href='/admin/edit/<%= app.name %>'>Edit</a></td>
 				</tr>

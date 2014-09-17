@@ -44,7 +44,7 @@ class AdminController < ApplicationController
 			@app.head_description = app_head_desc
 				
 			if @app.save()
-				redirect_to :action=>:app , :id=>app_name 
+				redirect_to :action=>:index
 			end
 		end
 		
@@ -99,8 +99,8 @@ class AdminController < ApplicationController
 		if session[:user_id] 
 			redirect_to :action=>:index 
 		else	
-			username 	= CGI::unescape( params[:txtUsername] )
-			password 	= CGI::unescape( params[:txtPassword] )
+			username 	= params[:txtUsername] 
+			password 	= params[:txtPassword] 
 			auth_token 	= params[:authenticity_token]
  			
  			if session["_csrf_token"] == auth_token
