@@ -1,0 +1,65 @@
+/* tables */
+table.tablesorter {
+	font-family:arial;
+	font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+	/*background-color: #CDCDCD;*/
+	
+	margin:10px 0pt 15px;
+
+	font-size: 7pt;
+	width: 100%;
+	text-align: left;
+}
+table.tablesorter thead tr th, table.tablesorter tfoot tr th {
+	
+	background-color: #54493e;
+	color:#fff;
+	/* border: 1px solid #FFF; */ 
+	
+	font-size: 8pt;
+	padding: 2px;  
+	padding-top:4px;
+
+}
+table.tablesorter thead tr .header {
+ 	background-image: url(bg.gif); 
+	background-repeat: no-repeat;
+	background-position: center right;
+	cursor: pointer;
+}
+
+
+
+table.tablesorter > tbody > tr >  td {
+	color: #3D3D3D;
+	padding: 4px;
+	background-color: #eee;
+	vertical-align: top;
+}
+
+
+
+
+table.tablesorter thead tr .headerSortUp {
+	background-image: url(asc.gif);
+}
+table.tablesorter thead tr .headerSortDown {
+	background-image: url(desc.gif);
+}
+table.tablesorter thead tr .headerSortDown, table.tablesorter thead tr .headerSortUp {
+	background-color: #8dbdd8;
+}
+
+
+table.tablesorter > tfoot > tr >  td {
+	color: #3D3D3D;
+	padding: 4px;
+	background-color: #dddddd;
+	vertical-align: top;
+}
+
+
+
+
+
+
