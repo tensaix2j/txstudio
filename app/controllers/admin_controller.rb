@@ -109,7 +109,7 @@ class AdminController < ApplicationController
  				if users.length > 0
 
  					admin = users[0]
- 					if Digest::SHA256.hexdigest( password) == admin.hashed_password
+ 					if Digest::SHA256.hexdigest( password.to_s ) == admin.hashed_password
 						session[:user_id] = "admin"
 						redirect_to :action=>:index
 					else
