@@ -8,6 +8,8 @@
 				<th>App Name</th>
 				<th>Date</th>
 				<th></th>
+				<th></th>
+				
 			</tr>
 
 		</thead>
@@ -19,6 +21,7 @@
 					<td><a href='/dashboard/app/<%= app.name %>'><%= app.name %></a></td>
 					<td><%= app.date %></td>
 					<td><a href='/admin/edit/<%= app.name %>'>Edit</a></td>
+					<td><a href='/admin/delete/<%= app.name %>' onclick="return confirm('Are you sure?')">Delete</a></td>
 				</tr>
 			<% } %>
 		</tbody>
