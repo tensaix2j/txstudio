@@ -5,7 +5,6 @@
 		<thead>
 			<tr>
 				<th width='10%'>App ID</th>
-				<th width='1%'>Icon</th>
 				<th>App Name</th>
 				<th>Date</th>
 				<th></th>
@@ -17,7 +16,6 @@
 			<% @apps.each { |app| %>
 				<tr>
 					<td><%= app.id %></td>
-					<td><img src='<%= app.icon %>'/></td>
 					<td><a href='/dashboard/app/<%= app.name %>'><%= app.name %></a></td>
 					<td><%= app.date %></td>
 					<td><a href='/admin/edit/<%= app.name %>'>Edit</a></td>

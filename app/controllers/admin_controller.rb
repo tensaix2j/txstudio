@@ -95,10 +95,12 @@ class AdminController < ApplicationController
 
 	#----------
 	def login
+
 		detect_user_agent()
 		if session[:user_id] 
 			redirect_to :action=>:index 
 		else	
+			
 			username 	= params[:txtUsername] 
 			password 	= params[:txtPassword] 
 			auth_token 	= params[:authenticity_token]
@@ -106,19 +108,22 @@ class AdminController < ApplicationController
  			if session["_csrf_token"] == auth_token
  				
  				users = User.find(:all, :conditions => [ "username = ?" , "admin"] )
- 				if users.length > 0
+ 				
+ 				if username && password
+	 				if users.length > 0
 
- 					admin = users[0]
- 					if Digest::SHA256.hexdigest( password.to_s ) == admin.hashed_password
-						session[:user_id] = "admin"
-						redirect_to :action=>:index
-					else
-						@errormsg = "Wrong password."
-					end	
-				else 
-					@errormsg = "No admin yet."	
+	 					admin = users[0]
+	 					if Digest::SHA256.hexdigest( password.to_s ) == admin.hashed_password
+							session[:user_id] = "admin"
+							redirect_to :action=>:index
+						else
+							@errormsg = "Wrong password."
+						end	
+					else 
+						@errormsg = "No admin yet."	
+					end
 				end
-
+				
  			else
  				@errormsg = "Forgery detected."
  			end
