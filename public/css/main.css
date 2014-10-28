@@ -63,7 +63,7 @@ A:hover {
 
 
 
-.griditemhover {
+.griditem:hover {
 
 	display:inline-block;
 	vertical-align: top;
@@ -145,12 +145,12 @@ A:hover {
 
 .shine {
     background: -moz-linear-gradient(top, rgba(255,255,255,0.7) 0%, rgba(255,255,255,0.2) 100%); /* FF3.6+ */
-background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,255,255,0.7)), color-stop(100%,rgba(255,255,255,0.2))); /* Chrome,Safari4+ */
-background: -webkit-linear-gradient(top, rgba(255,255,255,0.5) 0%,rgba(255,255,255,0.2) 100%); /* Chrome10+,Safari5.1+ */
-background: -o-linear-gradient(top, rgba(255,255,255,0.7) 0%,rgba(255,255,255,0.2) 100%); /* Opera 11.10+ */
-background: -ms-linear-gradient(top, rgba(255,255,255,0.7) 0%,rgba(255,255,255,0.2) 100%); /* IE10+ */
-background: linear-gradient(top, rgba(255,255,255,0.7) 0%,rgba(255,255,255,0.2) 100%); /* W3C */
-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b3ffffff', endColorstr='#33ffffff',GradientType=0 ); /* IE6-9 */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,255,255,0.7)), color-stop(100%,rgba(255,255,255,0.2))); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top, rgba(255,255,255,0.5) 0%,rgba(255,255,255,0.2) 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top, rgba(255,255,255,0.7) 0%,rgba(255,255,255,0.2) 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top, rgba(255,255,255,0.7) 0%,rgba(255,255,255,0.2) 100%); /* IE10+ */
+	background: linear-gradient(top, rgba(255,255,255,0.7) 0%,rgba(255,255,255,0.2) 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b3ffffff', endColorstr='#33ffffff',GradientType=0 ); /* IE6-9 */
     height: 88px;
     width: 90px;
     box-shadow: inset 0px 2px 1px rgba(255, 255, 255, 0.5);
@@ -173,6 +173,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b3ffffff', e
 	
 	color: rgb(160, 160, 160);
 	height:50px;
+	margin-bottom: 100px;
 
 }
 
@@ -202,4 +203,35 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b3ffffff', e
 
 #butsubmit {
 	width:98%;
+}
+
+.socialicon { 
+	display:inline-block;
+	width:32px;
+	height:32px;
+	background-repeat: no-repeat;
+	margin: 4px;
+}
+
+.socialicon:hover { 
+	
+	box-shadow:5px 4px 15px 1px  #000000;
+	-moz-box-shadow:  5px 4px 15px 1px  #000000;
+	-webkit-box-shadow: 5px 4px 15px 1px  #000000;
+
+	border-radius:16px;
+	-moz-border-radius: 16px;
+	-webkit-border-radius: 16px;
+
+
+}
+
+.socialicon_facebook {
+	background-image: url("/icons/GreenLeaf/32/facebook.png");
+}
+.socialicon_twitter {
+	background-image: url("/icons/GreenLeaf/32/twitter.png");
+}
+.socialicon_rss { 
+	background-image: url("/icons/GreenLeaf/32/rss.png");
 }
