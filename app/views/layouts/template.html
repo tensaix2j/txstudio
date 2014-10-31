@@ -23,6 +23,7 @@
 		
 
  		<link rel="icon" type="image/png" href="/css/imgs/bluecap_256.png"></link> 
+ 		<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
 
  		<% if browser_ok == 1 %>
 			<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.0/jquery.min.js"></script>
@@ -56,6 +57,7 @@
 
 		<% if browser_ok == 1 %>
 			<div id="stage">
+				<div id="stage_glass"></div>
 				<%= yield :layout %>
 			</div>
 		<% else %>
@@ -71,9 +73,12 @@
 
 			<div id="footer">
 				<div>
-					<a href="https://www.facebook.com/pages/Tensai-Studio/225032264234793"><div class="socialicon socialicon_facebook"></div></a>
-					<a href="http://twitter.com/tensaix2j"><div class="socialicon socialicon_twitter"></div></a>
-					<a href="http://feeds.feedburner.com/tensaistudio"><div class="socialicon socialicon_rss"></div></a>
+					<a href="https://www.facebook.com/pages/Tensai-Studio/225032264234793"><i class="fa fa-facebook fa"></i></a>
+					<a href="http://twitter.com/tensaix2j"><i class="fa fa-twitter fa"></i></a>
+					<a href="http://feeds.feedburner.com/tensaistudio"><i class="fa fa-rss fa"></i></a>
+					<a href="http://github.com/tensaix2j"><i class="fa fa-github fa"></i></a>
+					
+
 
 				</div>
 				<div><a href="/" id="footer">Tensai Studio 2011 - 2014</a></div>
