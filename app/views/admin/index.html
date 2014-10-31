@@ -1,5 +1,7 @@
 	
+	
 	<link rel="stylesheet" type="text/css" href="/css/tablesorter/tablesorter.css">
+
 
 	<table class="tablesorter">
 		<thead>
@@ -20,10 +22,18 @@
 					<td><%= app.id %></td>
 					<td><a href='/dashboard/app/<%= app.name %>'><%= app.name %></a></td>
 					<td><%= app.date %></td>
-					<td><a href='/admin/edit/<%= app.name %>'>Edit</a></td>
-					<td><a href='/admin/delete/<%= app.name %>' onclick="return confirm('Are you sure?')">Delete</a></td>
+					<td><a href='/admin/edit/<%= app.id %>'>Edit</a></td>
+					<td><a href='/admin/delete/<%= app.id %>' onclick="return confirm('Are you sure?')">Delete</a></td>
 				</tr>
 			<% } %>
 		</tbody>
+
+		<tfoot>
+			<tr>
+				<td></td>
+				<td><a href="/admin/add"><i class="fa fa-plus fa"></i></a></td>
+				<td colspan="3"></td>
+			</tr>
+		</tfoot>
 
 	</table>

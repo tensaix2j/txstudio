@@ -38,6 +38,8 @@ table.tablesorter > tbody > tr >  td {
 }
 
 
+table.tablesorter > tbody > tr:nth-child(even) > td {background: #E8DFBC}
+table.tablesorter > tbody > tr:nth-child(odd)  > td {background: #FFF}
 
 
 table.tablesorter thead tr .headerSortUp {

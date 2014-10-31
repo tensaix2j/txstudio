@@ -216,7 +216,7 @@ A:hover {
 }
 
 
-.fa:hover { 
+.fasocial:hover { 
 	
 	box-shadow:5px 4px 15px 1px  #ffffff;
 	-moz-box-shadow:  5px 4px 15px 1px  #000000;
@@ -227,7 +227,7 @@ A:hover {
 
 }
 
-.fa {
+.fasocial {
 
 	padding:4px;
 	margin:4px;

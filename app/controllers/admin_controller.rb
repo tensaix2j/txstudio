@@ -13,84 +13,85 @@ class AdminController < ApplicationController
 	#-----------
 	def edit
 		detect_user_agent()
-		app_name = params[:id] ? CGI::unescape( params[:id] ) :""
-		apps = App.find(:all, :conditions => [ "name = ?" , app_name ] )
-		
-		if apps.length > 0 
-			@app = apps[0]
+		app_id = params[:id]
+		@app = App.find_by_id(app_id)
 			
-		else
-			redirect_to :action=>:app
-		end
 	end
 	
 	#--------------
 	def save
 		detect_user_agent()
-		app_name = params[:id] ? CGI::unescape( params[:id] ) :""
+		
+		app_name = params[:txtAppName] ? CGI::unescape( params[:txtAppName] ) :""
 		app_icon = params[:txtAppIcon] ? CGI::unescape( params[:txtAppIcon] ) :""
 		app_desc = params[:txtAppDesc] ? CGI::unescape( params[:txtAppDesc] ) :""
 		app_large_icon = params[:txtAppLargeIcon] ? CGI::unescape( params[:txtAppLargeIcon] ) :""
 		app_head_desc = params[:txtAppHeadDesc] ? CGI::unescape( params[:txtAppHeadDesc] ) :""
 		
-		apps = App.find(:all, :conditions => [ "name = ?" , app_name ] )
+		@app = App.find_by_id( params[:id] )
 		
-		if apps.length > 0 
-			@app = apps[0]
+		if @app 
+			
+			@app.name = app_name
 			@app.icon = app_icon
 			@app.large_icon = app_large_icon
 			@app.description = app_desc
 			@app.date = Time.new().strftime("%Y%m%d.%H%M%S") if @app.date == nil
 			@app.head_description = app_head_desc
 				
-			if @app.save()
-				redirect_to :action=>:index
-			end
+			@app.save()
+			
+
 		end
-		
+
+		redirect_to :action=>:index
+			
 		
 	end
-	#-------------
+	
+
+	#------------
 	def add
 		detect_user_agent()
-		app_name = params[:txtAppName] ? CGI::unescape( params[:txtAppName] ) :""
-		app_icon = params[:txtAppIcon] ? CGI::unescape( params[:txtAppIcon] ) :""
-		app_large_icon = params[:txtAppLargeIcon] ? CGI::unescape( params[:txtAppLargeIcon] ) :""
-		app_desc = params[:txtAppDesc] ? CGI::unescape( params[:txtAppDesc] ) :""
-		app_head_desc = params[:txtAppHeadDesc] ? CGI::unescape( params[:txtAppHeadDesc] ) :""
+		@app = App.new()
+		@app.name = "New App Name"
+		@app.icon = "Icon Path"
+		@app.large_icon = "Large Icon Path"
+		@app.description = "Description HTML"
 		
+	end
+
+
+	#-------------
+	def saveadd
+		
+		app_name 		= params[:txtAppName] ? CGI::unescape( params[:txtAppName] ) :""
+		app_icon 		= params[:txtAppIcon] ? CGI::unescape( params[:txtAppIcon] ) :""
+		app_large_icon 	= params[:txtAppLargeIcon] ? CGI::unescape( params[:txtAppLargeIcon] ) :""
+		app_desc 		= params[:txtAppDesc] ? CGI::unescape( params[:txtAppDesc] ) :""
+		app_head_desc 	= params[:txtAppHeadDesc] ? CGI::unescape( params[:txtAppHeadDesc] ) :""
 		
 		@app = App.new()
-				
-		if app_name != "" && app_icon != "" && app_desc != "" 
-		
-			apps = App.find(:all, :conditions => [ "name = ?" , app_name ] )
-			if apps.length == 0
-				@app.name = app_name
-				@app.icon = app_icon
-				@app.large_icon = app_large_icon
-				@app.description = app_desc
-				@app.date = Time.new().strftime("%Y%m%d.%H%M%S")
-				@app.head_description = app_head_desc
-				
-				if @app.save()
-					redirect_to :action=>:app , :id=>app_name 
-				end
-			end 
-		end
+		@app.name = app_name
+		@app.icon = app_icon
+		@app.large_icon = app_large_icon
+		@app.description = app_desc
+		@app.date = Time.new().strftime("%Y%m%d.%H%M%S")
+		@app.head_description = app_head_desc
+		@app.save()
+	 
+		redirect_to :action=>:index
 	end
 
 	#-------------
 	def delete
 		detect_user_agent()
-		app_name = params[:id] ? CGI::unescape( params[:id] ) :""
 		
-		apps = App.find(:all, :conditions => [ "name = ?" , app_name ] )
-		
-		if apps.length > 0 
-			App.delete(apps[0])
-			redirect_to :action=>:index
+		@app = App.find_by_id( params[:id] )
+		if @app 
+			App.delete(@app)
 		end
+		redirect_to :action=>:index
 	end
 
 	#----------
