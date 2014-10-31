@@ -234,11 +234,11 @@ A:hover {
 	margin-bottom:8px;
 	color:#ffffff;
 	background-color: #222222;
-	width: 32px;
+	width: 24px;
 	font-size: 16pt;
 
-	border-radius:16px;
-	-moz-border-radius: 16px;
-	-webkit-border-radius: 16px;
+	border-radius:12px;
+	-moz-border-radius: 12px;
+	-webkit-border-radius: 12px;
 	
 }
