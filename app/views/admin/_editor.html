@@ -1,35 +1,67 @@
 			
-			<ol>
-				<li>	
-					App Name: <br/>
-					<input type="text" id="txtAppName" name="txtAppName"  value="<%= @app.name %>"  />
-					<br/><br/>
-				</li>
-			
-				<li>	
-					
-					Icon: <br/>
-					<input type="text" id="txtAppIcon" name="txtAppIcon" value="<%= @app.icon %>" />
-					<br/><br/>
-				</li>
-				
-				
-				<li>	
-					Large Icon: <br/>
-					<input type="text" id="txtAppLargeIcon" name="txtAppLargeIcon"  value="<%= @app.large_icon %>" />
-					<br/><br/>
-				</li>
-				
-				
-				
-				<li>
-					HTML: <br/>
-					<textarea name="txtAppDesc" id="txtAppDesc" rows="40" cols="80" > <%= @app.description %></textarea>
-					<br/><br/>
-				</li>
-				<li>
+			<div class="editor_table">
 
-					<input id="butsubmit" type="submit" value="Save" />
-					<br/><br/>
-				</li>
-			</ol>
+				<div class="editor_thead">
+					<div class="editor_tr">
+						<div class="editor_th1"></div>
+						<div class="editor_th2"></div>
+					</div>
+				</div>
+
+				<div class="editor_tr">	
+					<div class="editor_td">App Name:</div>
+					<div class="editor_td">
+						<input type="text" id="txtAppName" name="txtAppName"  value="<%= @app.name %>"  />
+					</div>
+				</div>
+			
+				<div class="editor_tr">	
+					
+					<div class="editor_td">Icon: (100x100)</div>
+					<div class="editor_td">
+						<input type="text" id="txtAppIcon" name="txtAppIcon" value="<%= @app.icon %>" />
+					</div>
+				</div>
+				
+				
+				<div class="editor_tr">	
+					<div class="editor_td">Large Icon: (200x200)</div>
+					<div class="editor_td">	
+						<input type="text" id="txtAppLargeIcon" name="txtAppLargeIcon"  value="<%= @app.large_icon %>" />
+					</div>
+				</div>
+				
+				
+				
+				<div class="editor_tr">
+					<div class="editor_td">HTML: </div>
+					<div class="editor_td">
+						<textarea name="txtAppDesc" id="txtAppDesc" rows="40"  > <%= @app.description %></textarea>
+					</div>
+				</div>
+				
+				<div class="editor_tr">
+					
+					<div class="editor_td"><button id="butpreview" onclick='generate_preview();return false'>Preview</button></div>
+					<div class="editor_td">
+						<div id="div_preview"></div>
+					</div>
+				</div>
+
+				<div class="editor_tr">
+					<div class="editor_td">
+						
+					</div>
+					<div class="editor_td">
+						<button id="butsubmit" type="submit" >Save</button>	
+					</div>	
+				</div>
+			</div>
+
+
+			<script>
+				function generate_preview() {
+						$("#div_preview").html( $("#txtAppDesc").val() );
+
+				}
+			</script>

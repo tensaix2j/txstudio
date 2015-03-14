@@ -1,0 +1,76 @@
+
+.editor_table {
+	margin: 20px;
+	display: table;
+	width: 90%;
+}
+
+.editor_thead {
+	display: table-header-group;
+}
+
+.editor_tr { 
+	display: table-row;
+
+}
+
+.editor_th1 {
+	display: table-cell;
+	width: 20%;
+}
+.editor_th2 {
+	display: table-cell;
+}
+
+.editor_td {
+	vertical-align: top;
+	text-align: left;
+	display: table-cell;
+	padding:10px;
+}
+
+.editor_td input {
+	width: 90%;
+}
+.editor_td textarea {
+	width:90%;
+}
+.editor_td button {
+	width: 90%;
+}
+
+#txtAppName {
+	border-width:1px;
+	border-color:#000000;
+}
+
+#txtAppIcon{
+	border-width:1px;
+	border-color:#000000;
+}
+
+#txtAppLargeIcon{
+	border-width:1px;
+	border-color:#000000;
+}
+
+#txtAppDesc{
+	vertical-align:text-top;
+}
+
+#butpreview {
+}
+
+#div_preview {
+	min-height: 800px;
+	background-color: #fff;
+	border: 1px solid;
+	border-color: black;
+		width: 90%;
+
+}
+
+#butsubmit {
+}
+
+

@@ -12,10 +12,14 @@ class AdminController < ApplicationController
 
 	#-----------
 	def edit
+
 		detect_user_agent()
 		app_id = params[:id]
-		@app = App.find_by_id(app_id)
-			
+		if app_id
+			@app = App.find_by_id(app_id)
+		else
+			redirect_to :action => :index
+		end	
 	end
 	
 	#--------------
@@ -53,11 +57,13 @@ class AdminController < ApplicationController
 	#------------
 	def add
 		detect_user_agent()
+		
+
 		@app = App.new()
-		@app.name = "New App Name"
-		@app.icon = "Icon Path"
-		@app.large_icon = "Large Icon Path"
-		@app.description = "Description HTML"
+		@app.name 			= "Untitled"
+		@app.icon 			= "http://icons.iconarchive.com/icons/alecive/flatwoken/96/Apps-Icon-Template-File-B-icon.png"
+		@app.large_icon 	= "http://icons.iconarchive.com/icons/alecive/flatwoken/256/Apps-Icon-Template-File-B-icon.png"
+		@app.description 	= "Description HTML"
 		
 	end
 

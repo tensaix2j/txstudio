@@ -188,32 +188,7 @@ A:hover {
 }
 
 
-#txtAppName {
-	border-width:1px;
-	width:98%;
-	border-color:#000000;
-}
 
-#txtAppIcon{
-	border-width:1px;
-	width:98%;
-	border-color:#000000;
-}
-
-#txtAppLargeIcon{
-	border-width:1px;
-	width:98%;
-	border-color:#000000;
-}
-
-#txtAppDesc{
-	width:98%;
-	vertical-align:text-top;
-}
-
-#butsubmit {
-	width:98%;
-}
 
 
 .fasocial:hover { 
