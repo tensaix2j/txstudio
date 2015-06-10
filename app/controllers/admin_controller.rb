@@ -26,9 +26,10 @@ class AdminController < ApplicationController
 	def save
 		detect_user_agent()
 		
-		app_name = params[:txtAppName] ? CGI::unescape( params[:txtAppName] ) :""
-		app_icon = params[:txtAppIcon] ? CGI::unescape( params[:txtAppIcon] ) :""
-		app_desc = params[:txtAppDesc] ? CGI::unescape( params[:txtAppDesc] ) :""
+		app_name = params[:txtAppName] ? CGI::unescape( params[:txtAppName] ) 		:""
+		app_icon = params[:txtAppIcon] ? CGI::unescape( params[:txtAppIcon] ) 		:""
+		head_desc = params[:txtHeadDesc] ? CGI::unescape( params[:txtHeadDesc] )	:""
+		app_desc = params[:txtAppDesc] ? CGI::unescape( params[:txtAppDesc] ) 		:""
 		app_large_icon = params[:txtAppLargeIcon] ? CGI::unescape( params[:txtAppLargeIcon] ) :""
 		app_head_desc = params[:txtAppHeadDesc] ? CGI::unescape( params[:txtAppHeadDesc] ) :""
 		
@@ -41,7 +42,7 @@ class AdminController < ApplicationController
 			@app.large_icon = app_large_icon
 			@app.description = app_desc
 			@app.date = Time.new().strftime("%Y%m%d.%H%M%S") if @app.date == nil
-			@app.head_description = app_head_desc
+			@app.head_description = head_desc
 				
 			@app.save()
 			

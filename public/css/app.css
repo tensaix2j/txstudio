@@ -12,8 +12,11 @@
 .appicon {
 	
 	margin:20px;
-	width:200px;
-	height:200px;
+	margin-left: 40px;
+	
+	width:128px;
+	height:128px;
+
 	float:left;
 	border-radius:15px;
 	-moz-border-radius: 15px;
