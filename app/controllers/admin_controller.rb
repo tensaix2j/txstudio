@@ -44,12 +44,16 @@ class AdminController < ApplicationController
 			@app.date = Time.new().strftime("%Y%m%d.%H%M%S") if @app.date == nil
 			@app.head_description = head_desc
 				
-			@app.save()
+			if @app.save()
+				flash[:success] = "Saved."
+			else
+				flash[:error]  = "#{ @app.errors.full_messages }"
+			end
 			
-
 		end
 
-		redirect_to :action=>:index
+		redirect_to :action=>:edit , :id=> params[:id]
+
 			
 		
 	end
