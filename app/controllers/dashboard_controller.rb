@@ -6,7 +6,7 @@ class DashboardController < ApplicationController
 	def index
 
 		detect_user_agent() 
-		@apps = App.find(:all)
+		@apps = App.find(:all, :order => "seq_id" )
 		@host = request.host
 		@host_with_port = request.host_with_port
 		

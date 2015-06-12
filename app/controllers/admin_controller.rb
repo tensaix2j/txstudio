@@ -2,11 +2,13 @@ class AdminController < ApplicationController
 
 	layout 'template'
 	before_filter :authorize, :except=> [:login ] 	
+	skip_before_filter  :verify_authenticity_token
+
 
 	#--------
 	def index
 		detect_user_agent()
-		@apps = App.find(:all)
+		@apps = App.find(:all , :order => "seq_id" )
 	end
 
 
@@ -22,6 +24,39 @@ class AdminController < ApplicationController
 		end	
 	end
 	
+	#------------
+	def saveseq
+
+		response = {
+			:status => 0,
+			:statusmsg => "OK"
+		}
+
+		begin
+			seq_hash = JSON.parse( params[:data] )
+			@apps = App.find(:all)
+			@apps.each { |app|
+
+
+				if seq_hash[ app.id.to_s ]
+					
+					app.seq_id = seq_hash[ app.id.to_s ] 
+					app.save()
+				end
+			}
+			
+		rescue Exception => e
+		 
+			response[:status] = "-1"
+			response[:statusmsg] = e.to_s
+		end
+
+
+		render :text => response.to_json
+
+	end
+
+
 	#--------------
 	def save
 		detect_user_agent()

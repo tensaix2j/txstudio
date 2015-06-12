@@ -3,11 +3,12 @@ class CreateUsertable < ActiveRecord::Migration
   	
   	create_table :users do |t|
 
-    	t.column :username, 		:string
-    	t.column :hashed_password, 	:string
-		t.column :role, 			:string
-		t.column :registered, 		:string
-	end
+    	t.column :username, 		     :string
+    	t.column :hashed_password, 	 :string
+		  t.column :role, 			       :string
+		  t.column :registered, 		   :string
+      
+    end
 	
   end
 

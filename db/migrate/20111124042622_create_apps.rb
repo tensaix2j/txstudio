@@ -7,8 +7,8 @@ class CreateApps < ActiveRecord::Migration
       t.column :description,         :text
       t.column :date,                :string
       t.column :icon,                :string
-      t.column :large_icon,          :varchar
-	
+      t.column :large_icon,          :string
+      	
     end
   end
 

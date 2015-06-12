@@ -1,12 +1,17 @@
 	
+	<%= javascript_include_tag 'admin' %>
+	<%= stylesheet_link_tag 'admin'    %>
+		
 	
-
-	<table class="table">
+	<table class="table" id="tblapp">
 		<thead>
 			<tr>
 				<th width='10%'>App ID</th>
 				<th>App Name</th>
 				<th>Date</th>
+				
+				<th></th>
+				<th></th>
 				<th></th>
 				<th></th>
 				
@@ -20,8 +25,13 @@
 					<td><%= app.id %></td>
 					<td><a href='/dashboard/app/<%= app.name %>'><%= app.name %></a></td>
 					<td><%= app.date %></td>
+					
+					<td><a class='sorter' onclick="moveup(this);"  ><i class="fa fa-sort-up fa"></a></td>	
+					<td><a class='sorter' onclick="movedown(this);"><i class="fa fa-sort-down fa"></a></td>	
+							
 					<td><a href='/admin/edit/<%= app.id %>'><i class="fa fa-edit fa"></a></td>
 					<td><a href='/admin/delete/<%= app.id %>' onclick="return confirm('Are you sure?')"><i class="fa fa-remove fa"></a></td>
+
 				</tr>
 			<% } %>
 		</tbody>
@@ -30,7 +40,10 @@
 			<tr>
 				<td></td>
 				<td><a href="/admin/add"><i class="fa fa-plus fa"></i></a></td>
-				<td colspan="3"></td>
+				<td></td>
+				<td colspan="2"> <button class="btn btn-default" onclick="saveseq();">Save</button> </td>
+				<td colspan="2"></td>
+				<td></td>
 			</tr>
 		</tfoot>
 
