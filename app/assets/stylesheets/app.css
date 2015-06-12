@@ -26,7 +26,7 @@
 	-moz-box-shadow:  4px 4px 20px 1px  #000000;
 	-webkit-box-shadow: 4px 4px 20px 1px  #000000;
 
-	background-image: url("imgs/bg3.png");
+	background-image: url("/imgs/bg3.png");
 	background-color:#3d2b19;
 
 	
@@ -45,7 +45,7 @@
 	text-shadow: 2px 2px 2px rgba(0, 0, 0, .8);
 
 	color: #eee;
-	background-image: url("imgs/bg3.png");
+	background-image: url("/imgs/bg3.png");
 	
 	margin:20px;
 	vertical-align: middle;
