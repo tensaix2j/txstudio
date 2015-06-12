@@ -19,14 +19,8 @@ class ApplicationController < ActionController::Base
 	def timestring_to_timeobj( timestamp )
 		
 		if timestamp && timestamp != ""
-			year = timestamp[0..3].to_i
-			month = timestamp[4..5].to_i
-			day  = timestamp[6..7].to_i
-			hour = timestamp[9..10].to_i
-			minute = timestamp[11..12].to_i
-			second = timestamp[13..14].to_i
-			
-			return Time.parse("%04d/%02d/%02d %02d:%02d:%02d" % [year,month,day,hour,minute,second] )
+
+			return Time.parse("%04d/%02d/%02d %02d:%02d:%02d" % timestamp.scan(/(....)(..)(..).(..)(..)(..)/)[0].map { |item| item.to_i } )
 		else 
 			return nil
 		end

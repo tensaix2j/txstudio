@@ -9,6 +9,11 @@ class AdminController < ApplicationController
 	def index
 		detect_user_agent()
 		@apps = App.find(:all , :order => "seq_id" )
+		@apps.each { |app|
+			
+			app.date = timestring_to_timeobj( app.date ).strftime("%Y %B, %d %H:%M:%S")
+			
+		}
 	end
 
 
