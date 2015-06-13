@@ -91,6 +91,22 @@
 						<div id="header_icon"></div>
 						<div id="header_title">Tensai Studio</div> 
 					</a>
+
+					<% if !session[:user_id]  %>
+						<a href="/admin">
+							<div id="header_login" class="nav navbar-nav navbar-right">Login</div>
+						</a>
+					<% else %>
+						<div id="header_login" class="nav navbar-nav navbar-right">
+							Welcome, <%= session[:user_id] %> 
+							&nbsp;
+							<a href="/admin/logout">
+								<i class="fa fa-power-off"></i>
+							</a>
+						</div>
+
+					<% end %>
+
 				</div>
 			</div>
 		

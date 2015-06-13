@@ -1,10 +1,10 @@
 
 	<%= form_tag :action=>:login  %>
 		<ol>
-			<% if @errormsg  %>
-                <div id="notice" align='center' style='color:red'><%= @errormsg %></div>
-            <% end %>
-			
+			<% flash.each do |key, value| %>
+       			<div class="alert alert-<%= key %>"><%= value %></div>
+      		<% end %>
+
 			<li>	
 				Admin User Name: <br/>
 				<input type="text" name="txtUsername" style="border-width:1px;width:400px;border-color:#000000;"  />

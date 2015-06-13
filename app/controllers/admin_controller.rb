@@ -87,7 +87,7 @@ class AdminController < ApplicationController
 			if @app.save()
 				flash[:success] = "Saved."
 			else
-				flash[:error]  = "#{ @app.errors.full_messages }"
+				flash[:danger]  = "#{ @app.errors.full_messages }"
 			end
 			
 		end
@@ -169,15 +169,14 @@ class AdminController < ApplicationController
 							session[:user_id] = "admin"
 							redirect_to :action=>:index
 						else
-							@errormsg = "Wrong password."
+							flash[:danger] = "Wrong password."
 						end	
 					else 
-						@errormsg = "No admin yet."	
+						flash[:danger]  = "No admin yet."	
 					end
 				end
 				
- 			else
- 				@errormsg = "Forgery detected."
+ 			
  			end
  				
 			
@@ -187,7 +186,7 @@ class AdminController < ApplicationController
 	#---------
 	def logout
 		session[:user_id] = nil
-		redirect_to :action=>:index
+		redirect_to :controller=>:dashboard, :action=>:index
 	end
 
 	def authorize
