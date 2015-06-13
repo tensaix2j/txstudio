@@ -11,7 +11,7 @@
 				<div class="editor_tr">	
 					<div class="editor_td">App Name:</div>
 					<div class="editor_td">
-						<input type="text" id="txtAppName" name="txtAppName"  value="<%= @app.name %>"  />
+						<input type="text" class="form-control" id="txtAppName" name="txtAppName"  value="<%= @app.name %>"  />
 					</div>
 				</div>
 			
@@ -19,7 +19,7 @@
 					
 					<div class="editor_td">Icon: (100x100)</div>
 					<div class="editor_td">
-						<input type="text" id="txtAppIcon" name="txtAppIcon" value="<%= @app.icon %>" />
+						<input type="text" class="form-control" id="txtAppIcon" name="txtAppIcon" value="<%= @app.icon %>" />
 					</div>
 				</div>
 				
@@ -27,14 +27,14 @@
 				<div class="editor_tr">	
 					<div class="editor_td">Large Icon: (200x200)</div>
 					<div class="editor_td">	
-						<input type="text" id="txtAppLargeIcon" name="txtAppLargeIcon"  value="<%= @app.large_icon %>" />
+						<input type="text"  class="form-control" id="txtAppLargeIcon" name="txtAppLargeIcon"  value="<%= @app.large_icon %>" />
 					</div>
 				</div>
 				
 				<div class="editor_tr">
 					<div class="editor_td">Header HTML: </div>
 					<div class="editor_td">
-						<textarea name="txtHeadDesc" id="txtHeadDesc" rows="10"  > <%= @app.head_description %></textarea>
+						<textarea name="txtHeadDesc" class="form-control" id="txtHeadDesc" rows="10"  > <%= @app.head_description %></textarea>
 					</div>
 				</div>
 					
@@ -42,13 +42,15 @@
 				<div class="editor_tr">
 					<div class="editor_td">HTML: </div>
 					<div class="editor_td">
-						<textarea name="txtAppDesc" id="txtAppDesc" rows="40"  > <%= @app.description %></textarea>
+						<textarea name="txtAppDesc" class="form-control" id="txtAppDesc" rows="40"  > <%= @app.description %></textarea>
 					</div>
 				</div>
 				
 				<div class="editor_tr">
 					
-					<div class="editor_td"><button id="butpreview" onclick='generate_preview();return false'>Preview</button></div>
+					<div class="editor_td">
+						<button id="butpreview" class="btn btn-default"  onclick='generate_preview();return false'>Preview</button>
+					</div>
 					<div class="editor_td">
 						<div id="div_preview"></div>
 					</div>
@@ -59,7 +61,7 @@
 						
 					</div>
 					<div class="editor_td">
-						<button id="butsubmit" type="submit" >Save</button>	
+						<button id="butsubmit" class="btn btn-default" type="submit" >Save</button>	
 					</div>	
 				</div>
 			</div>

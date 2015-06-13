@@ -1,0 +1,18 @@
+
+#login_form {
+	list-style-type: none;
+	margin-right: 35px;
+
+}
+#login_form li {
+	text-align: left;
+	margin:20px;
+}
+
+#stage {
+	
+	margin: auto;
+	margin-top: 10%;
+	width: 600px;
+	
+}

@@ -1,25 +1,33 @@
+	
+	<%= stylesheet_link_tag 'login'    %>
 
 	<%= form_tag :action=>:login  %>
-		<ol>
+
+		<ul id="login_form">
+	
 			<% flash.each do |key, value| %>
        			<div class="alert alert-<%= key %>"><%= value %></div>
       		<% end %>
 
 			<li>	
-				Admin User Name: <br/>
-				<input type="text" name="txtUsername" style="border-width:1px;width:400px;border-color:#000000;"  />
-				<br/><br/>
+				Admin User Name: 
 			</li>
-			<li>
-				Password: <br/>
-				<input type="password" name="txtPassword" style="border-width:1px;width:400px;border-color:#000000;"  />
-				<br/><br/>
-			</li>
-			<li>
 
-				<input type="submit" value="Admin Login" style="width:400px;"  />
-				<br/><br/>
+			<li>
+				<input class="form-control" type="text" name="txtUsername" />
 			</li>
-		</ol>
+			
+			<li>
+				Password: 
+			</li>
+			<li>
+				<input class="form-control" type="password" name="txtPassword"  />
+			</li>
+
+
+			<li>
+				<input class="form-control" type="submit" value="Admin Login"  />
+			</li>
+		</ul>
 	</form>
 	
