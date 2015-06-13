@@ -6,7 +6,8 @@ html {
 	margin: 0px;
 	width: 100%;
 	vertical-align: baseline;
-
+	min-width: 400px;
+	
 	
 }
 
@@ -124,6 +125,7 @@ A:hover {
 #header_icon_and_title {
 	position: relative;
 	left: 4px;
+
 }
 
 #header_icon {
@@ -146,9 +148,23 @@ A:hover {
 #header_login {
 	font-size: 1.0em;
 	color:#fff;
-	position: relative;
-	left : -30px;
-	top: 10px;
+	
+	position: fixed;
+    top: 1em;
+    white-space: nowrap;
+}
+
+@media screen and (max-width: 400px) {
+	#header_login {    
+    	left: 200px;
+	}	
+}
+
+
+@media screen and (min-width: 400px) {
+    #header_login {    
+    	right: 1em;
+	}
 }
 
 

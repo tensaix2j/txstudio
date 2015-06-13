@@ -94,10 +94,10 @@
 
 					<% if !session[:user_id]  %>
 						<a href="/admin">
-							<div id="header_login" class="nav navbar-nav navbar-right">Login</div>
+							<div id="header_login">Login</div>
 						</a>
 					<% else %>
-						<div id="header_login" class="nav navbar-nav navbar-right">
+						<div id="header_login">
 							Welcome, <%= session[:user_id] %> 
 							&nbsp;
 							<a href="/admin/logout">
