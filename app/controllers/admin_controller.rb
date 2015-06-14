@@ -3,11 +3,11 @@ class AdminController < ApplicationController
 	layout 'template'
 	before_filter :authorize, :except=> [:login ] 	
 	skip_before_filter  :verify_authenticity_token
-
+	
 
 	#--------
 	def index
-		detect_user_agent()
+		app_common()
 		@apps = App.find(:all , :order => "seq_id" )
 		@apps.each { |app|
 			
@@ -20,7 +20,7 @@ class AdminController < ApplicationController
 	#-----------
 	def edit
 
-		detect_user_agent()
+		app_common()
 		app_id = params[:id]
 		if app_id
 			@app = App.find_by_id(app_id)
@@ -64,14 +64,15 @@ class AdminController < ApplicationController
 
 	#--------------
 	def save
-		detect_user_agent()
+		app_common()
 		
-		app_name = params[:txtAppName] ? CGI::unescape( params[:txtAppName] ) 		:""
-		app_icon = params[:txtAppIcon] ? CGI::unescape( params[:txtAppIcon] ) 		:""
-		head_desc = params[:txtHeadDesc] ? CGI::unescape( params[:txtHeadDesc] )	:""
-		app_desc = params[:txtAppDesc] ? CGI::unescape( params[:txtAppDesc] ) 		:""
-		app_large_icon = params[:txtAppLargeIcon] ? CGI::unescape( params[:txtAppLargeIcon] ) :""
-		app_head_desc = params[:txtAppHeadDesc] ? CGI::unescape( params[:txtAppHeadDesc] ) :""
+		app_name 		= params[:txtAppName] ? CGI::unescape( params[:txtAppName] ) 		:""
+		app_icon 		= params[:txtAppIcon] ? CGI::unescape( params[:txtAppIcon] ) 		:""
+		head_desc 		= params[:txtHeadDesc] ? CGI::unescape( params[:txtHeadDesc] )	:""
+		app_large_icon 	= params[:txtAppLargeIcon] ? CGI::unescape( params[:txtAppLargeIcon] ) :""
+		
+		app_head_desc 	= params[:txtAppHeadDesc] 
+		app_desc 		= params[:txtAppDesc]
 		
 		@app = App.find_by_id( params[:id] )
 		
@@ -101,7 +102,7 @@ class AdminController < ApplicationController
 
 	#------------
 	def add
-		detect_user_agent()
+		app_common()
 		
 
 		@app = App.new()
@@ -119,9 +120,11 @@ class AdminController < ApplicationController
 		app_name 		= params[:txtAppName] ? CGI::unescape( params[:txtAppName] ) :""
 		app_icon 		= params[:txtAppIcon] ? CGI::unescape( params[:txtAppIcon] ) :""
 		app_large_icon 	= params[:txtAppLargeIcon] ? CGI::unescape( params[:txtAppLargeIcon] ) :""
-		app_desc 		= params[:txtAppDesc] ? CGI::unescape( params[:txtAppDesc] ) :""
-		app_head_desc 	= params[:txtAppHeadDesc] ? CGI::unescape( params[:txtAppHeadDesc] ) :""
 		
+		app_head_desc 	= params[:txtAppHeadDesc] 
+		app_desc 		= params[:txtAppDesc] 
+		
+
 		@app = App.new()
 		@app.name = app_name
 		@app.icon = app_icon
@@ -129,14 +132,23 @@ class AdminController < ApplicationController
 		@app.description = app_desc
 		@app.date = Time.new().strftime("%Y%m%d.%H%M%S")
 		@app.head_description = app_head_desc
-		@app.save()
-	 
-		redirect_to :action=>:index
+
+		if @app.save()
+		
+			flash[:success] = "Added."
+	 		redirect_to :action=>:edit , :id=> @app.id
+
+	 	else 
+	 		
+	 		flash[:danger]  = "#{ @app.errors.full_messages }"
+	 		redirect_to :action=>:add
+
+	 	end
+
 	end
 
 	#-------------
 	def delete
-		detect_user_agent()
 		
 		@app = App.find_by_id( params[:id] )
 		if @app 
@@ -148,7 +160,7 @@ class AdminController < ApplicationController
 	#----------
 	def login
 
-		detect_user_agent()
+		app_common()
 		if session[:user_id] 
 			redirect_to :action=>:index 
 		else	
@@ -189,10 +201,129 @@ class AdminController < ApplicationController
 		redirect_to :controller=>:dashboard, :action=>:index
 	end
 
+	#---------------
 	def authorize
 		if !session[:user_id] 
 			redirect_to :action=>:login
 		end 
  	end
 
+ 	#--------
+ 	def site
+
+		app_common()
+		@sites = Site.find(:all )
+	
+	end
+
+	#------------
+	def addsite
+		app_common()
+		
+
+		@site = Site.new()
+		@site.title 		= "Untitled"
+		@site.description 	= ""
+		@site.favicon 		= "/imgs/bluecap_32.png"
+			
+		
+	end
+
+	#----------
+	def editsite
+		app_common()
+		site_id = params[:id]
+		if site_id
+			@site = Site.find_by_id(site_id)
+		else
+			redirect_to :action => :site
+		end	
+	end
+
+
+	#-------
+	def saveaddsite
+
+		site_title 			= params[:txt_title] ? CGI::unescape( params[:txt_title] ) :""
+		site_description 	= params[:txt_description] ? CGI::unescape( params[:txt_description] ) :""
+		site_favicon 		= params[:txt_favicon] ? CGI::unescape( params[:txt_favicon] ) :""
+		site_cusom_css 		= params[:txt_custom_css] 
+		site_footer 		= params[:txt_footer] 
+		site_analytics		= params[:txt_analytics]
+		site_commentsystem	= params[:txt_commentsystem] 
+
+		@site = Site.new()
+		@site.title = site_title
+		@site.description = site_description
+		@site_favicon = site_favicon
+		@site.custom_css = site_cusom_css
+		@site.footer = site_footer
+		@site.analytics = site_analytics
+		@site.commentsystem = site_commentsystem
+
+
+		if @site.save()
+		
+			flash[:success] = "Added."
+	 		redirect_to :action=>:editsite , :id=> @site.id
+
+	 	else 
+	 		
+	 		flash[:danger]  = "#{ @site.errors.full_messages }"
+	 		redirect_to :action=>:addsite
+
+	 	end
+	end
+
+	#--------------
+	def saveeditsite
+
+		app_common()
+		
+		site_title 			= params[:txt_title] ? CGI::unescape( params[:txt_title] ) :""
+		site_description 	= params[:txt_description] ? CGI::unescape( params[:txt_description] ) :""
+		site_favicon 		= params[:txt_favicon] ? CGI::unescape( params[:txt_favicon] ) :""
+		site_cusom_css 		= params[:txt_custom_css] 
+		site_footer 		= params[:txt_footer] 
+		site_analytics		= params[:txt_analytics] 
+		site_commentsystem	= params[:txt_commentsystem]
+
+		
+		@site = Site.find_by_id( params[:id] )
+		
+		if @site 
+			
+			@site.title 		= site_title
+			@site.description 	= site_description
+			@site.favicon 		= site_favicon
+			@site.custom_css 	= site_cusom_css
+			@site.footer 		= site_footer
+			@site.analytics 	= site_analytics
+			@site.commentsystem = site_commentsystem
+				
+			if @site.save()
+				flash[:success] = "Saved."
+			else
+				flash[:danger]  = "#{ @site.errors.full_messages }"
+			end
+			
+		end
+
+		redirect_to :action=>:editsite , :id=> params[:id]
+
+	end
+
+	#-------------
+	def deletesite
+		
+		@site = Site.find_by_id( params[:id] )
+		if @site 
+			Site.delete(@site)
+		end
+		redirect_to :action=>:site
+	end
+
+
 end
+
+

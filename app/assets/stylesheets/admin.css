@@ -6,3 +6,9 @@
 .sorter {
 	cursor: pointer;
 }
+
+#buttontab {
+	text-align: left;
+	margin: 20px;
+	margin-bottom: 40px;
+}

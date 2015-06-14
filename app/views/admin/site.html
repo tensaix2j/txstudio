@@ -1,0 +1,45 @@
+	
+	
+	<%= stylesheet_link_tag 'admin'    %>
+		
+	<div id="buttontab">
+		<a href="/admin/index"><button class="btn btn-default">Apps Setting</button></a>
+	</div>
+
+	<table class="table" id="tblsite">
+		<thead>
+			<tr>
+				<th width='10%'>Site ID</th>
+				<th>Title</th>
+				<th>Description</th>
+				<th></th>
+				<th></th>
+				
+				
+			</tr>
+
+		</thead>
+
+		<tbody>
+			<% @sites.each { |site| %>
+				<tr>
+					<td><%= site.id %></td>
+					<td><%= site.title %></td>
+					<td><%= site.description %></td>
+					
+					<td><a href='/admin/editsite/<%= site.id %>'><i class="fa fa-edit fa"></a></td>
+					<td><a href='/admin/deletesite/<%= site.id %>' onclick="return confirm('Are you sure?')"><i class="fa fa-remove fa"></a></td>
+
+				</tr>
+			<% } %>
+		</tbody>
+
+		<tfoot>
+			<tr>
+				<td></td>
+				<td><a href="/admin/addsite"><i class="fa fa-plus fa"></i></a></td>
+			</tr>
+		</tfoot>
+
+	</table>
+	

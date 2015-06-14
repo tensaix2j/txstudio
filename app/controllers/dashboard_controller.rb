@@ -5,7 +5,7 @@ class DashboardController < ApplicationController
 	#------------
 	def index
 
-		detect_user_agent() 
+		app_common() 
 		@apps = App.find(:all, :order => "seq_id" )
 		@host = request.host
 		@host_with_port = request.host_with_port
@@ -32,7 +32,7 @@ class DashboardController < ApplicationController
 	#------------
 	def app
 
-		detect_user_agent() 
+		app_common() 
 		app_name = params[:id] ? CGI::unescape( params[:id] ) :""
 		apps = App.find(:all, :conditions => [ "name = ?" , app_name ] )
 		

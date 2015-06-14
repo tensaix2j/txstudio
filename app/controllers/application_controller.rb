@@ -48,6 +48,25 @@ class ApplicationController < ActionController::Base
 
 	end
 
+	#----------------
+	def get_site_setting()
+
+		siteconfig = YAML.load_file( "#{Rails.root}/config/site.yml")
+		@template_site = Site.find_by_id( siteconfig["id"].to_i )
+		if @template_site == nil
+			@template_site = Site.first()
+		end
+	end
+
+	#----------
+	def app_common() 
+
+		detect_user_agent()
+		get_site_setting()
+
+	end
+
+
 
 
 

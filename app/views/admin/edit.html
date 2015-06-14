@@ -1,12 +1,9 @@
 
-		<%= stylesheet_link_tag 'editor' %>
+	<%= stylesheet_link_tag 'editor' %>
 
-		<% flash.each do |key, value| %>
-       		<div class="alert alert-<%= key %>"><%= value %></div>
-      	<% end %>
-      	
-		<%= form_tag :action=>:save ,:id=>@app.id %>
-			<%= render "admin/editor" %>
-		</form>
+	
+	<%= form_tag :action=>:save ,:id=>@app.id %>
+		<%= render "admin/editor" %>
+	</form>
 	
 

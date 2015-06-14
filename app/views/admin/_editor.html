@@ -1,4 +1,10 @@
 			
+
+			<% flash.each do |key, value| %>
+   				<div class="alert alert-<%= key %>"><%= value %></div>
+  			<% end %>
+  	
+
 			<div class="editor_table">
 
 				<div class="editor_thead">
@@ -25,7 +31,7 @@
 				
 				
 				<div class="editor_tr">	
-					<div class="editor_td">Large Icon: (200x200)</div>
+					<div class="editor_td">Large Icon: (128x128)</div>
 					<div class="editor_td">	
 						<input type="text"  class="form-control" id="txtAppLargeIcon" name="txtAppLargeIcon"  value="<%= @app.large_icon %>" />
 					</div>

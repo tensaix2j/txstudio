@@ -1,0 +1,87 @@
+			
+
+			<% flash.each do |key, value| %>
+   				<div class="alert alert-<%= key %>"><%= value %></div>
+  			<% end %>
+  	
+
+			<div class="editor_table">
+
+				<div class="editor_thead">
+					<div class="editor_tr">
+						<div class="editor_th1"></div>
+						<div class="editor_th2"></div>
+					</div>
+				</div>
+
+
+				<div class="editor_tr">	
+					<div class="editor_td">Site Title:</div>
+					<div class="editor_td">
+						<input type="text" class="form-control" id="txt_title" name="txt_title"  value="<%= @site.title %>"  />
+					</div>
+				</div>
+
+
+				<div class="editor_tr">	
+					
+					<div class="editor_td">Fav Icon: (32x32)</div>
+					<div class="editor_td">
+						<input type="text" class="form-control" id="txt_favicon" name="txt_favicon" value="<%= @site.favicon %>" />
+					</div>
+				</div>
+
+				<div class="editor_tr">	
+					<div class="editor_td">Site Description:</div>
+					<div class="editor_td">
+						<input type="text" class="form-control" id="txt_description" name="txt_description"  value="<%= @site.description %>"  />
+					</div>
+				</div>
+
+
+
+				<div class="editor_tr">
+					<div class="editor_td">Custom CSS: </div>
+					<div class="editor_td">
+						<textarea name="txt_custom_css" class="form-control" id="txt_custom_css" rows="10"  > <%= @site.custom_css %></textarea>
+					</div>
+				</div>
+
+				<div class="editor_tr">
+					<div class="editor_td">Footer: </div>
+					<div class="editor_td">
+						<textarea name="txt_footer" class="form-control" id="txt_footer" rows="10"  > <%= @site.footer %></textarea>
+					</div>
+				</div>
+				
+
+				<div class="editor_tr">
+					<div class="editor_td">Analytics: </div>
+					<div class="editor_td">
+						<textarea name="txt_analytics" class="form-control" id="txt_analytics" rows="10"  > <%= @site.analytics %></textarea>
+					</div>
+				</div>
+				
+
+				<div class="editor_tr">
+					<div class="editor_td">Comment System: </div>
+					<div class="editor_td">
+						<textarea name="txt_commentsystem" class="form-control" id="txt_commentsystem" rows="10"  > <%= @site.commentsystem %></textarea>
+					</div>
+				</div>
+				
+
+
+
+				<div class="editor_tr">
+					<div class="editor_td">
+						
+					</div>
+					<div class="editor_td">
+						<button id="butsubmit" class="btn btn-default" type="submit" >Save</button>	
+					</div>	
+				</div>
+			</div>
+
+
+			
