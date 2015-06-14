@@ -52,10 +52,11 @@ class ApplicationController < ActionController::Base
 	def get_site_setting()
 
 		siteconfig = YAML.load_file( "#{Rails.root}/config/site.yml")
+		
 		@template_site = Site.find_by_id( siteconfig["id"].to_i )
-		if @template_site == nil
-			@template_site = Site.first()
-		end
+		@template_site = Site.first() if @template_site == nil
+		@template_site = Site.new()   if @template_site == nil
+		
 	end
 
 	#----------
