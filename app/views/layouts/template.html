@@ -46,11 +46,11 @@
 		
 		<!-- Custom CSS -->
 		<style>
-			<%= @template_site.custom_css.html_safe %>
+			<%= @template_site.custom_css && @template_site.custom_css.html_safe %>
 		</style>
 				
 	
-		<%= @template_site.analytics.html_safe %>
+		<%= @template_site.analytics && @template_site.analytics.html_safe %>
 		
 
 	</head>
@@ -101,7 +101,7 @@
 		<% if browser_ok == 1 %>
 
 			<div id="footer">
-				<%= @template_site.footer.html_safe %>
+				<%= @template_site.footer && @template_site.footer.html_safe %>
 			</div>
 		<% end %>
 	</body>
